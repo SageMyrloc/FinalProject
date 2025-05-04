@@ -1,0 +1,37 @@
+{% extends "template.html" %} {% block content %}
+
+<!-- Main Content -->
+<main class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="col-12 col-md-6">
+    <div id="messageContainer" class="mb-3"></div>
+    <form>
+      <!-- Username input -->
+      <div class="form-outline mb-4">
+        <input type="text" id="registerUsername" class="form-control" placeholder="Username" required />
+      </div>
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email" id="registerEmail" class="form-control" placeholder="Email" required />
+      </div>
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="registerPassword" class="form-control" placeholder="Password" required />
+      </div>
+      <!-- Confirm Password input -->
+      <div class="form-outline mb-4">
+        <input type="password" id="registerConfirmPassword" class="form-control" placeholder="Confirm Password" required />
+      </div>
+      <!-- Row with two buttons -->
+      <div class="row mb-4">
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary w-100">Register</button>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn btn-secondary w-100" onclick="window.location.href='/login'">Back to Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
+<script src="/static/js/register.js"></script>
+{% endblock %}

@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&display=swap");
+
+h1 {
+  font-size: 76px;
+}
+
+header {
+  font-family: "Delius Swash Caps";
+  font-size: 50px;
+  background-color: #009772;
+  height: 15vh;
+}
+
+main {
+  height: 75vh;
+}
+
+footer {
+  font-family: "Delius Swash Caps";
+  background-color: #009772;
+  font-size: 20px;
+  text-align: right;
+  height: 10vh;
+}
+
+.companyLogo {
+  width: 125px;
+  height: auto;
+}
+
+.btn-primary {
+  background-color: #009772;
+}
+
+.sidebar-btn {
+  width: 30%;
+  min-width: 120px;   /* Prevents them from becoming too small */
+  text-align: center;
+}
+
+/* On medium screens and up, switch to 70% width */
+@media (min-width: 768px) {
+  .sidebar-btn {
+      width: 90%;
+  }
+}
+
+.category-btn {
+  width: 40%;
+  min-width: 140px;   /* Prevents them from becoming too small */
+  text-align: center;
+}
+
+/* On medium screens and up, switch to 70% width */
+@media (min-width: 768px) {
+  .category-btn {
+      width: 70%;
+  }
+}
+
+
+

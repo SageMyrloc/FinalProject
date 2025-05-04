@@ -1,0 +1,49 @@
+{% extends "template.html" %} {% block content %}
+
+<!-- Main Content -->
+<main class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="col-12 col-md-6">
+    <div class="container mt-5">
+      <h2>Login</h2>
+
+      <div id="messageContainer"></div>
+      <!-- Error messages will appear here -->
+
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" id="username" name="username" class="form-control" required />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" name="password" class="form-control" required />
+        </div>
+        <!-- sign in row -->
+        <div class="row mb-4">
+          <div class="col-6">
+            <button type="submit" class="btn btn-primary w-100">Sign in</button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-secondary w-100" onclick="window.location.href='/forgot-password'">Forgot password</button>
+          </div>
+        </div>
+
+        <!-- register row -->
+        <div class="row">
+          <div class="col-6">
+            <button type="button" class="btn btn-secondary w-100" onclick="window.location.href='/register'">Register</button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-secondary w-100" onclick="window.location.href='/'">Homepage</button>
+          </div>
+        </div>
+          
+        </div>
+      </form>
+    </div>
+  </main>
+
+    <script src="/static/js/login.js"></script>
+
+    {% endblock %}
+ 

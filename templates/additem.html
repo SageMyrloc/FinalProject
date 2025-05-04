@@ -1,0 +1,48 @@
+{% extends "menu.html" %} {% block displayArea %}
+
+<section class="container">
+  <div class="row">
+    <div class="col-12">
+      <h2>Inserting a new item</h2>
+    </div>
+  </div>
+  <div class="row g-0">
+    <!-- Remove gutter spacing -->
+    <!-- Left Column: Categories -->
+    <div class="col-12 col-md-3">
+      <h4 id="selectedCategoryDisplay">Categories</h4>
+      <div id="buttonContainer" class="d-flex flex-row flex-md-column gap-1 flex-wrap justify-content-center">
+        {% for category in categories %}
+        <button type="button" class="btn btn-primary btn-lg category-btn text-nowrap" data-category="{{ category }}">{{ category }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- Right Column: Adding data here -->
+    <div class="col-8 offset-1">
+      <h4>Details</h4>
+      <p id="detailsMessage">Please select a category from the left to add a new item.</p>
+      <div id="dynamicForm" class="mb-3"></div>
+      <!-- Message Display Area -->
+      <div id="messageBox">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+        <div class="alert alert-{{ messages[0][0] }}">{{ messages[0][1] }}</div>
+        {% endif %} {% endwith %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+    window.addItemData = {
+    categories: {{ categories | tojson | safe }},
+    applianceTypes: {{ applianceTypes | tojson | safe }},
+    foodTypes: {{ foodTypes | tojson | safe }},
+    transportTypes: {{ transportTypes | tojson | safe }}
+  };
+  window.userID = {{ session['user_id'] | tojson }};
+</script>
+
+<script src="{{ url_for('static', filename='js/AddItems.js') }}"></script>
+
+{% endblock %}

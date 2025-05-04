@@ -1,0 +1,46 @@
+{% extends "menu.html" %} {% block displayArea %}
+
+<section class="container py-5">
+  <!-- Flash messages displayed here -->
+  {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+  <div class="alert alert-{{ messages[0][0] }}">{{ messages[0][1] }}</div>
+  {% endif %} {% endwith %}
+
+  <h2>Activity Logs</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Activity Name</th>
+        <th>CO2e</th>
+        <th>Log Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for log in logs %}
+      <tr>
+        <td>{{ log.ActivityName }}</td>
+        <!-- Activity Name from the table (Food, Transport, Appliance) -->
+        <td>{{ log.Co2e }}</td>
+        <td>{{ log.LogTime.strftime('%H:%M %d-%m-%y') }}</td>
+        <td>
+          <form action="{{ url_for('delete_log', log_id=log.ActivityLogID) }}" method="POST">
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Pagination Controls -->
+  <div class="d-flex justify-content-between">
+    {% if page > 1 %}
+    <a href="{{ url_for('userlog', page=page-1) }}" class="btn btn-primary">Previous</a>
+    {% endif %} {% if page * 10 < total_logs %}
+    <a href="{{ url_for('userlog', page=page+1) }}" class="btn btn-primary">Next</a>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+/* Arrange buttons */
+.btn-matrix {
+	flex-wrap: wrap; /* allow buttons to jump to another row */
+}
+.btn-matrix > .btn {
+	width: 33%; /* force buttons to have the same width regardless of content */
+}
+.btn-matrix > .btn:nth-child(3n + 4) {
+	margin-left: 0; /* because .btn-group adds `margin-left: -1px;` to all buttons */
+}
+.btn-matrix > .btn:nth-child(n + 4) {
+	margin-top: -1px; /* superimpose borders of the buttons from adjacent rows */
+}
+
+/* Fix border radius */
+.btn-matrix > .btn:first-child {
+	border-bottom-left-radius: 0;
+}
+.btn-matrix > .btn:nth-child(3) {
+	border-top-right-radius: 4px !important;
+}
+.btn-matrix > .btn:nth-last-child(3) {
+	border-bottom-left-radius: 4px !important;
+}
+.btn-matrix > .btn:last-child {
+	border-top-right-radius: 0;
+}
+
+/* Decorations */
+.btn-matrix {
+	margin: 20px 0;
+	max-width: 500px;
+}

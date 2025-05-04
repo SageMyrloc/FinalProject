@@ -1,0 +1,27 @@
+{% extends "template.html" %} {% block header %} {% endblock %} {% block content %}
+
+<main class="container-fluid py-3">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-12 col-md-1 d-flex flex-row flex-md-column justify-content-start align-items-start">
+      <div class="d-flex flex-row flex-md-column flex-wrap gap-2 justify-content-center">
+        <a href="/additem/" class="btn btn-primary btn-lg sidebar-btn text-nowrap">New Item</a>
+        <a href="{{ url_for('userlog', page=1) }}" class="btn btn-primary btn-lg sidebar-btn text-nowrap">View Logs</a>
+        <a href="/viewdata/" class="btn btn-primary btn-lg sidebar-btn text-nowrap">View Data</a>
+        <a href="/logout/" class="btn btn-primary btn-lg sidebar-btn text-nowrap">Logout</a>
+      </div>
+    </div>
+
+    <!-- Display Area -->
+    <div class="col-12 col-md-9 offset-md-2 offset-lg-1">
+      {% block displayArea %}
+      <div class="container-fluid py-5">
+        <h2>About EcoCalc</h2>
+        <p>Please press a button from the menu on the left to access further pages of the application.</p>
+      </div>
+      {% endblock %}
+    </div>
+  </div>
+</main>
+
+{% endblock %}

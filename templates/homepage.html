@@ -1,0 +1,55 @@
+{% extends "template.html" %} {% block head %} {{ super() }}
+<style>
+  /* Additional homepage-specific styling */
+  .hero {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  .cta-button {
+    margin-top: 20px;
+  }
+</style>
+
+{% endblock %} {% block content %}
+<main class="container-fluid d-flex justify-content-center align-items-center">
+  <div class="col-12">
+    <section class="hero text-center my-5">
+      <div>
+        <h2>Welcome to EcoCalc</h2>
+        <p>Your personal carbon footprint tracker and guide</p>
+        <button type="button" class="btn btn-primary cta-button mt-5" onclick="window.location.href='/menu/'">Get Started</button>
+
+        <div class="row text-center">
+          <div class="col-md-5">
+            <i class="bi bi-speedometer2" style="font-size: 2rem"></i>
+            <h4>Easy Tracking</h4>
+            <p>Monitor your daily carbon footprint with ease.</p>
+          </div>
+          <div class="col-md-5 offset-2">
+            <i class="bi bi-graph-up" style="font-size: 2rem"></i>
+            <h4>Progress Analytics</h4>
+            <p>Visualize your improvements and set goals for the future.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container text-center py-5">
+      <div class="mt-5 mb-5 px-3">
+        <blockquote class="blockquote mt-5">
+          <p>
+            <strong>“What you do makes a difference" </strong> </br> 
+            "You have to decide what kind of difference you want to make.”
+          </p>
+        </blockquote>
+        <div class="blockquote-footer mt-3">Dr Jane Goodall, Scientist & Activist</div>
+      </div>
+    </section>
+  </div>
+</main>
+{% endblock %}
